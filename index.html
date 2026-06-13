@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrgCore – إدارة المبيعات والمخزون</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">OrgCore</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features" data-ar="المميزات" data-en="Features">المميزات</a></li>
+      <li><a href="#mobile" data-ar="متابعة عن بُعد" data-en="Remote Access">متابعة عن بُعد</a></li>
+      <li><a href="#sectors" data-ar="القطاعات" data-en="Sectors">القطاعات</a></li>
+      <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-lang" onclick="toggleLang()" id="langBtn">EN</button>
+      <a href="https://wa.me/962790824434" target="_blank" class="btn-cta-nav" id="navCta">تواصل الآن</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-dots"></div>
+    <div class="hero-blob1"></div>
+    <div class="hero-blob2"></div>
+
+    <!-- IMAGE SLIDER -->
+    <div class="hero-slider-wrap">
+      <div class="hero-slider" id="heroSlider">
+        <div class="slide active"><img src="controlpanel.png" alt="Reports">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide"><img src="general-sales.png" alt="Sales">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide"><img src="stock-levels.png" alt="Stock">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide"><img src="best-products.png" alt="Best Products">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide"><img src="weekly-sales.png" alt="Weekly">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide"><img src="dashboard-general.png" alt="summary">
+          <div class="slide-overlay"></div>
+        </div>
+
+      </div>
+      <button class="slider-btn prev" onclick="changeSlide(-1)">&#8249;</button>
+      <button class="slider-btn next" onclick="changeSlide(1)">&#8250;</button>
+      <div class="slider-nav" id="sliderDots"></div>
+      <div class="slide-caption" id="slideCaption">تقارير شهرية تفاعلية</div>
+
+      <!-- stat floats inside slider area -->
+      <div class="hero-float f1">
+        <span style="font-size:1.3rem">📊</span>
+        <div>
+          <div class="val">JOD 12,055</div>
+          <div class="lbl" id="hfl1">إجمالي المبيعات</div>
+        </div>
+      </div>
+      <div class="hero-float f2">
+        <span style="font-size:1.3rem">🟢</span>
+        <div>
+          <div class="val" id="hfl2">مباشر</div>
+          <div class="lbl" id="hfl3">حالة النظام</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT CONTENT -->
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span><span id="heroBadge">إدارة أعمالك بذكاء • بيانات مباشرة</span>
+      </div>
+      <h1 id="heroH1">نظام <span>OrgCore</span><br>لإدارة المبيعات<br>والمخزون</h1>
+      <div class="hero-quote">
+        <strong id="heroQ1">هل ما زلت تدير مبيعاتك يدويًا أو باستخدام أنظمة قديمة؟</strong>
+        <div id="heroQContent">
+          <div class="ck">مع OrgCore أصبح بإمكانك إدارة:</div>
+          <div class="ck">✅ المبيعات والفواتير بسهولة</div>
+          <div class="ck">✅ المخزون والمنتجات بدقة</div>
+          <div class="ck">✅ تقارير الأرباح والخسائر لحظة بلحظة</div>
+          <div class="ck">✅ نقاط البيع والكاشير باحترافية</div>
+          <div class="ck">✅ التكامل الكامل مع نظام الفوترة الوطني "فوترة"</div>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="https://wa.me/962790824434" target="_blank" class="btn-primary" id="heroCta1">💬 ابدأ الآن</a>
+        <a href="#features" class="btn-secondary" id="heroCta2">🔍 اكتشف المميزات</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats reveal">
+    <div class="stat-card">
+      <div class="num">200+</div>
+      <div class="lbl" id="s1">منتج يمكن إدارته</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">∞</div>
+      <div class="lbl" id="s2">فروع بلا حدود</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">24/7</div>
+      <div class="lbl" id="s3">مراقبة مباشرة</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">100%</div>
+      <div class="lbl" id="s4">متوافق مع الهاتف</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="features-header reveal">
+      <div class="section-tag" id="featTag">المميزات</div>
+      <h2 class="section-title" id="featTitle">كل ما تحتاجه في منصة واحدة</h2>
+      <p class="section-sub" id="featSub">نظام متكامل يغطي كل جوانب إدارة عملك، من المخزون إلى التقارير الشاملة</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon-wrap">🛒</div>
+        <h3 id="f1t">إدارة المبيعات</h3>
+        <p id="f1d">تتبع جميع معاملاتك البيعية عبر الفروع، مع دعم طرق الدفع المتعددة وإصدار فواتير احترافية في ثوانٍ.
+        </p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon-wrap">📦</div>
+        <h3 id="f2t">إدارة المخزون</h3>
+        <p id="f2d">راقب مستويات مخزونك بدقة فائقة. تنبيهات تلقائية عند نفاد الكميات وتقارير حركات مخزون كاملة.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon-wrap">📈</div>
+        <h3 id="f3t">التقارير والتحليلات</h3>
+        <p id="f3d">تقارير يومية وأسبوعية وشهرية مع رسوم بيانية تفاعلية. اعرف أفضل المنتجات مبيعاً وأداء كل فرع.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon-wrap">🏪</div>
+        <h3 id="f4t">نقطة البيع POS</h3>
+        <p id="f4d">واجهة كاشير سريعة وسهلة الاستخدام. تعمل مع الطابعات والباركود، مناسبة للمحلات والمطاعم.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon-wrap">🌿</div>
+        <h3 id="f5t">إدارة الفروع</h3>
+        <p id="f5d">أدر فروعك المتعددة من مكان واحد. نقل المخزون بين الفروع ومتابعة أداء كل فرع بشكل منفصل.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon-wrap">📋</div>
+        <h3 id="f6t">نظام فوترة متكامل</h3>
+        <p id="f6d">تكامل كامل مع نظام الفوترة الوطني "فوترة". إصدار فواتير ضريبية معتمدة بضغطة زر.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="screenshots">
+    <div class="screenshots-header reveal">
+      <h2 class="section-title" id="ssTitle">اكتشف النظام من الداخل</h2>
+      <p class="section-sub" id="ssSub" style="margin:0 auto">واجهة نظيفة وسهلة الاستخدام بالعربية والإنجليزية</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(0)" id="tab0">المبيعات</button>
+      <button class="tab-btn" onclick="switchTab(1)" id="tab1">التقارير الشهرية</button>
+      <button class="tab-btn" onclick="switchTab(2)" id="tab2">التقارير الأسبوعية</button>
+      <button class="tab-btn" onclick="switchTab(3)" id="tab3">حركات المخزون</button>
+      <button class="tab-btn" onclick="switchTab(4)" id="tab4">الفواتير</button>
+      <button class="tab-btn" onclick="switchTab(5)" id="tab5">أفضل المنتجات</button>
+    </div>
+    <div class="tab-panels">
+      <div class="tab-panel active" id="panel0">
+        <img src="payment-method.png" alt="Sales">
+        <div class="panel-text reveal">
+          <h3 id="p0t">إدارة المبيعات</h3>
+          <p id="p0d">تتبع جميع المعاملات البيعية عبر فروعك مع فلترة متقدمة حسب التاريخ والفرع وطريقة الدفع. اعرف إجمالي
+            مبيعاتك في ثوانٍ.</p>
+          <ul>
+            <li id="p0l1">تصفية حسب الفرع والتاريخ</li>
+            <li id="p0l2">طرق دفع متعددة (نقدي، بطاقة)</li>
+            <li id="p0l3">عرض تفاصيل كل عملية</li>
+            <li id="p0l4">تصدير البيانات Excel</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel1">
+        <img src="monthly-sales.png" alt="Monthly Reports">
+        <div class="panel-text reveal">
+          <h3 id="p1t">التقارير الشهرية</h3>
+          <p id="p1d">رسوم بيانية شاملة للمبيعات الشهرية مع إمكانية الفلترة حسب الفرع والسنة. شاهد أداء عملك على مدار
+            العام.</p>
+          <ul>
+            <li id="p1l1">مخطط مبيعات شهري</li>
+            <li id="p1l2">فلترة حسب الفرع</li>
+            <li id="p1l3">مقارنة سنوية</li>
+            <li id="p1l4">تصدير التقارير</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel2">
+        <img src="weekly-sales.png" alt="Weekly Reports">
+        <div class="panel-text reveal">
+          <h3 id="p2t">التقارير الأسبوعية</h3>
+          <p id="p2d">تقارير أسبوعية مفصلة حسب اليوم مع عدد الفواتير والمبيعات. اعرف أي أيام الأسبوع هي الأكثر مبيعاً.
+          </p>
+          <ul>
+            <li id="p2l1">مخطط يومي للأسبوع</li>
+            <li id="p2l2">عدد الفواتير يومياً</li>
+            <li id="p2l3">إجمالي المبيعات اليومي</li>
+            <li id="p2l4">بطاقات تفصيلية لكل يوم</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel3">
+        <img src="stock-movements.png" alt="Stock">
+        <div class="panel-text reveal">
+          <h3 id="p3t">حركات المخزون</h3>
+          <p id="p3d">تتبع جميع حركات الوارد والصادر والتحويلات بين الفروع. اعرف سبب كل حركة مع فلترة متقدمة.</p>
+          <ul>
+            <li id="p3l1">تتبع الوارد والصادر</li>
+            <li id="p3l2">تحويل مخزون بين الفروع</li>
+            <li id="p3l3">تسجيل أسباب الحركة</li>
+            <li id="p3l4">فلترة حسب النوع والفرع</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel4">
+        <img src="general-sales.png" alt="Invoice">
+        <div class="panel-text reveal">
+          <h3 id="p4t">الفواتير التفصيلية</h3>
+          <p id="p4d">فواتير احترافية بتفاصيل كاملة: الفرع، التاريخ، الكاشير، طريقة الدفع والعناصر المباعة بالكميات
+            والأسعار.</p>
+          <ul>
+            <li id="p4l1">فواتير احترافية كاملة</li>
+            <li id="p4l2">تفاصيل المنتجات والكميات</li>
+            <li id="p4l3">دعم الضريبة والخصم</li>
+            <li id="p4l4">طباعة وتصدير PDF</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel5">
+        <img src="best-products.png" alt="Best Products">
+        <div class="panel-text reveal">
+          <h3 id="p5t">أفضل المنتجات مبيعاً</h3>
+          <p id="p5d">تقرير مرئي بالمنتجات الأكثر مبيعاً بشكل بياني ملون وسهل القراءة. حدد على أي المنتجات تركز جهودك.
+          </p>
+          <ul>
+            <li id="p5l1">ترتيب المنتجات حسب المبيعات</li>
+            <li id="p5l2">رسوم بيانية ملونة</li>
+            <li id="p5l3">مقارنة أداء المنتجات</li>
+            <li id="p5l4">تحديد الفرص الرابحة</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE -->
+  <section id="mobile">
+    <div class="mobile-grid">
+      <div class="reveal">
+        <div class="section-tag" id="mobTag">في كل مكان</div>
+        <h2 class="section-title" id="mobTitle">راقب متجرك من<br><span style="color:var(--accent)">أي مكان في
+            العالم</span></h2>
+        <p class="section-sub" id="mobSub">بيانات مباشرة على هاتفك. لا تحتاج أن تكون في المتجر لتعرف ما يحدث.</p>
+        <ul class="mobile-features">
+          <li>
+            <div class="ico">📱</div>
+            <div class="txt">
+              <h4 id="mf1t">يعمل على جميع الأجهزة</h4>
+              <p id="mf1d">متوافق مع الهواتف والأجهزة اللوحية وسطح المكتب</p>
+            </div>
+          </li>
+          <li>
+            <div class="ico">⚡</div>
+            <div class="txt">
+              <h4 id="mf2t">بيانات فورية ومباشرة</h4>
+              <p id="mf2d">لحظة تسجيل أي بيع تراه على لوحتك فوراً</p>
+            </div>
+          </li>
+          <li>
+            <div class="ico">🔔</div>
+            <div class="txt">
+              <h4 id="mf3t">تنبيهات ذكية</h4>
+              <p id="mf3d">تنبيهات عند نفاد المخزون أو تجاوز الأهداف</p>
+            </div>
+          </li>
+          <li>
+            <div class="ico">🌐</div>
+            <div class="txt">
+              <h4 id="mf4t">سحابي بالكامل</h4>
+              <p id="mf4d">لا حاجة لتثبيت برامج. يعمل من المتصفح مباشرة</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="mobile-visual reveal">
+        <img src="controlpanel.png" alt="Mobile">
+        <div class="live-badge">
+          <div class="live-dot"></div><span id="liveBadge">بيانات مباشرة الآن</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTATION -->
+  <section id="quotation">
+    <div class="quote-box reveal">
+      <div class="section-tag" style="margin:0 auto 1.5rem" id="qTag">لماذا OrgCore؟</div>
+      <h2 id="qTitle">وفّر وقتك، <span>زِد أرباحك</span>، وسيطر على عملك</h2>
+      <div class="quote-checklist">
+        <strong id="qQ1">هل ما زلت تدير مبيعاتك يدويًا أو باستخدام أنظمة قديمة؟</strong>
+        <div id="qChecks">
+          <div class="ck">✅ <span>المبيعات والفواتير بسهولة</span></div>
+          <div class="ck">✅ <span>المخزون والمنتجات بدقة</span></div>
+          <div class="ck">✅ <span>تقارير الأرباح والخسائر لحظة بلحظة</span></div>
+          <div class="ck">✅ <span>نقاط البيع والكاشير باحترافية</span></div>
+          <div class="ck">✅ <span>التكامل الكامل مع نظام الفوترة الوطني "فوترة"</span></div>
+        </div>
+      </div>
+      <div class="suitable">
+        <p><strong id="suitTitle">💼 مناسب لـ:</strong></p>
+        <p id="suitText">المحلات التجارية، السوبرماركت، المطاعم، والمشاريع بجميع أحجامها.</p>
+      </div>
+      <p class="cta-slogan" id="ctaSlogan">🎯 وفر وقتك، زِد أرباحك، وسيطر على عملك بالكامل من <span>منصة واحدة</span>.
+      </p>
+      <a href="https://wa.me/962790824434" target="_blank" class="btn-primary"
+        style="justify-content:center;font-size:1.05rem;margin:0 auto" id="quoteCta">ابدأ الآن 🚀</a>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section id="sectors">
+    <div class="sectors-header reveal">
+      <div class="section-tag" id="secTag">القطاعات</div>
+      <h2 class="section-title" id="secTitle">مناسب لجميع الأعمال</h2>
+      <p class="section-sub" id="secSub" style="margin:0 auto">مرن وقابل للتخصيص ليناسب طبيعة عملك</p>
+    </div>
+    <div class="sectors-grid reveal">
+      <div class="sector-card">
+        <div class="ico">🛒</div><span id="sec1">محلات تجارية</span>
+      </div>
+      <div class="sector-card">
+        <div class="ico">🏪</div><span id="sec2">سوبرماركت</span>
+      </div>
+      <div class="sector-card">
+        <div class="ico">🍔</div><span id="sec3">مطاعم</span>
+      </div>
+      <div class="sector-card">
+        <div class="ico">👗</div><span id="sec4">محلات الملابس</span>
+      </div>
+      <div class="sector-card">
+        <div class="ico">💊</div><span id="sec5">صيدليات</span>
+      </div>
+      <div class="sector-card">
+        <div class="ico">⚙️</div><span id="sec6">مشاريع متنوعة</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-tag" id="cTag">تواصل معنا</div>
+        <h2 class="section-title" id="cTitle">جاهزون لمساعدتك</h2>
+        <p id="cSub">لأي استفسار أو طلب عرض توضيحي، تواصل معنا عبر واتساب أو الهاتف وسيرد عليك فريقنا فوراً.</p>
+        <div class="contact-cards">
+          <a href="https://wa.me/962790824434" target="_blank" class="contact-card">
+            <span class="ci">💬</span>
+            <div class="ct">
+              <h4 id="cc1t">واتساب</h4>
+              <p>0790824434</p>
+            </div>
+          </a>
+          <a href="tel:+962790824434" class="contact-card">
+            <span class="ci">📞</span>
+            <div class="ct">
+              <h4 id="cc2t">اتصل بنا</h4>
+              <p>0790824434</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3 id="cfTitle">أرسل لنا رسالة</h3>
+        <div class="form-group"><label id="fnLabel">الاسم</label><input type="text" id="nameInput"
+            placeholder="اسمك الكريم"></div>
+        <div class="form-group"><label id="fpLabel">رقم الهاتف</label><input type="tel" id="phoneInput"
+            placeholder="07XXXXXXXX"></div>
+        <div class="form-group"><label id="fmLabel">رسالتك</label><textarea id="msgInput"
+            placeholder="كيف يمكننا مساعدتك؟"></textarea></div>
+        <button class="form-submit" id="fSubmit" onclick="sendWhatsApp()">إرسال عبر واتساب ✉️</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">OrgCore</div>
+    <p id="footerSub">نظام إدارة المبيعات والمخزون المتكامل</p>
+    <ul class="footer-links">
+      <li><a href="#features" id="fl1">المميزات</a></li>
+      <li><a href="#contact" id="fl3">تواصل معنا</a></li>
+    </ul>
+    <p style="margin-top:1rem;font-size:.75rem" id="footerCopy">© 2026 OrgCore. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <a href="https://wa.me/962790824434" class="wa-float" target="_blank" title="WhatsApp">
+    <svg viewBox="0 0 32 32">
+      <path
+        d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.025 7.773L0 32l8.418-2.004C10.66 31.294 13.27 32 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.29 22.29c-.344.967-1.704 1.77-2.8 2.003-.747.161-1.72.29-5.003-1.076-4.2-1.704-6.907-5.972-7.115-6.248-.2-.276-1.686-2.245-1.686-4.283s1.062-3.038 1.44-3.454c.378-.416.826-.52 1.1-.52.274 0 .549.003.79.014.254.013.594-.097.93.71.344.826 1.168 2.865 1.272 3.073.103.207.172.448.034.724-.137.276-.206.448-.413.69-.207.24-.435.537-.62.721-.207.207-.422.43-.18.844.24.413 1.073 1.774 2.304 2.873 1.584 1.41 2.919 1.848 3.332 2.055.413.207.655.172.898-.103.24-.276 1.03-1.203 1.306-1.616.275-.413.55-.344.93-.207.378.137 2.41 1.135 2.82 1.343.413.207.688.31.79.482.103.172.103.996-.24 1.963z" />
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
